@@ -99,9 +99,10 @@
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">install.packages</span>(<span class="st">"devtools"</span>, <span class="dt">repos =</span> <span class="st">"http://cran.rstudio.com"</span>)</a></code></pre></div>
 <pre><code>## Installing package into '/usr/local/lib/R/site-library'
 ## (as 'lib' is unspecified)</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"ecmwf/caliver"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">library</span>(<span class="st">"devtools"</span>)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"ecmwf/caliver"</span>)</a></code></pre></div>
 <pre><code>## Using GitHub PAT from envvar GITHUB_PAT</code></pre>
-<pre><code>## Skipping install of 'caliver' from a github remote, the SHA1 (cd23ee75) has not changed since last install.
+<pre><code>## Skipping install of 'caliver' from a github remote, the SHA1 (abda8839) has not changed since last install.
 ##   Use `force = TRUE` to force installation</code></pre>
 <p>Load the caliver package:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">library</span>(<span class="st">"caliver"</span>)</a></code></pre></div>
@@ -160,7 +161,7 @@
 <h2 class="hasAnchor">
 <a href="#utilities" class="anchor"></a>Utilities</h2>
 <p>The function <code>import_GEFF_data_from_tar()</code> can be used to open the tar archive, decompress the gz files, merge the layers into a RasterStack and convert this to a RasterBrick object. A sample dataset (geff5.tar) is available in the testdata folder of the package.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">geff5tar &lt;-<span class="st"> </span><span class="kw">system.file</span>(<span class="kw">file.path</span>(<span class="st">"testdata"</span>, <span class="st">"geff5.tar"</span>), </a>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">geff5tar &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/system.file">system.file</a></span>(<span class="kw">file.path</span>(<span class="st">"testdata"</span>, <span class="st">"geff5.tar"</span>), </a>
 <a class="sourceLine" id="cb14-2" data-line-number="2">                        <span class="dt">package =</span> <span class="st">"caliver"</span>)</a>
 <a class="sourceLine" id="cb14-3" data-line-number="3">b &lt;-<span class="st"> </span><span class="kw"><a href="../reference/import_geff_data_from_tar.html">import_geff_data_from_tar</a></span>(<span class="dt">archive =</span> geff5tar)</a></code></pre></div>
 <p>Decompress bulk gz archives using the function <code><a href="../reference/decompress_gz.html">decompress_gz()</a></code>.</p>
