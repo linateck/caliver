@@ -127,7 +127,7 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>ranking_map</th>
-      <td><p>is the Raster layer, result of <code>ranking()</code>.</p></td>
+      <td><p>is the Raster layer, result of <code><a href='ranking.html'>ranking()</a></code>.</p></td>
     </tr>
     </table>
     
@@ -136,7 +136,7 @@
     <pre class="examples"><span class='co'># NOT RUN {</span>
   <span class='no'>r</span> <span class='kw'>&lt;-</span> <span class='fu'>brick</span>(<span class='st'>"cfwis_ffwi_20170101_1200_00.nc"</span>)<span class='kw'>[[</span><span class='fl'>1</span>]]
   <span class='no'>clima</span> <span class='kw'>&lt;-</span> <span class='fu'>brick</span>(<span class='st'>"fwi.nc"</span>)
-  <span class='no'>ranking_map</span> <span class='kw'>&lt;-</span> <span class='fu'>ranking</span>(<span class='no'>r</span>, <span class='no'>clima</span>)
+  <span class='no'>ranking_map</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ranking.html'>ranking</a></span>(<span class='no'>r</span>, <span class='no'>clima</span>)
   <span class='fu'>plot_ranking</span>(<span class='no'>ranking_map</span>)
 <span class='co'># }</span><div class='input'>
 </div></pre>

@@ -154,7 +154,7 @@ By default this is 4 days.</p></td>
                         <span class='kw'>by</span> <span class='kw'>=</span> <span class='st'>"day"</span>)
 
   <span class='co'># Create an index of fire season dates</span>
-  <span class='no'>seasons</span> <span class='kw'>&lt;-</span> <span class='fu'>get_fire_season</span>(<span class='no'>dataDates</span>, <span class='kw'>emisphere</span> <span class='kw'>=</span> <span class='st'>"north"</span>)
+  <span class='no'>seasons</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='get_fire_season.html'>get_fire_season</a></span>(<span class='no'>dataDates</span>, <span class='kw'>emisphere</span> <span class='kw'>=</span> <span class='st'>"north"</span>)
   <span class='no'>fireSeasonIndex</span> <span class='kw'>&lt;-</span> <span class='fu'>which</span>(<span class='no'>seasons</span> <span class='kw'>==</span> <span class='fl'>TRUE</span>)
 
   <span class='no'>r</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>raster</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/raster/topics/brick'>brick</a></span>(<span class='st'>'FWI_1980-2016.nc'</span>)
