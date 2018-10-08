@@ -1,6 +1,6 @@
 pandoc: '2.2'
 pkgdown: 1.1.0.9000
-pkgdown_sha: 77ceb8cc8bc815020a24f1f690e91d590d3a52e2
+pkgdown_sha: c990ad4daa65267cbd90ab7f1438bab329da3bc0
 articles:
   caliver_danger_classes-vignette: caliver_danger_classes-vignette.html
   caliver_intro-vignette: caliver_intro-vignette.html
