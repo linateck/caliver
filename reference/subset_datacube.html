@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>plot_obs_vs_forecast — plot_obs_vs_forecast • caliver</title>
+<title>subset_datacube — subset_datacube • caliver</title>
 
 <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
 
@@ -32,9 +32,10 @@
 
 
 
-<meta property="og:title" content="plot_obs_vs_forecast — plot_obs_vs_forecast" />
+<meta property="og:title" content="subset_datacube — subset_datacube" />
 
-<meta property="og:description" content="Plot observations versus forecast" />
+<meta property="og:description" content="This function subsets a datacube (RasterStack or RasterBrick)
+based on dates." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -112,78 +113,49 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>plot_obs_vs_forecast</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ecmwf/caliver/blob/master/R/plot_obs_vs_forecast.R'><code>R/plot_obs_vs_forecast.R</code></a></small>
-    <div class="hidden name"><code>plot_obs_vs_forecast.Rd</code></div>
+    <h1>subset_datacube</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ecmwf/caliver/blob/master/R/subset_datacube.R'><code>R/subset_datacube.R</code></a></small>
+    <div class="hidden name"><code>subset_datacube.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Plot observations versus forecast</p>
+    <p>This function subsets a datacube (RasterStack or RasterBrick)
+based on dates.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>plot_obs_vs_forecast</span>(<span class='no'>input_dir</span>, <span class='kw'>s</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>p</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>threshold</span>, <span class='no'>start_date</span>,
-  <span class='no'>end_date</span>, <span class='kw'>obs_file_path</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>forecast_type</span> <span class='kw'>=</span> <span class='st'>"hr"</span>, <span class='kw'>origin</span> <span class='kw'>=</span> <span class='st'>"cfwis"</span>,
-  <span class='kw'>index</span> <span class='kw'>=</span> <span class='st'>"ffwi"</span>)</pre>
+    <pre class="usage"><span class='fu'>subset_datacube</span>(<span class='no'>r</span>, <span class='no'>from</span>, <span class='no'>to</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>input_dir</th>
-      <td><p>folder containing forecast files</p></td>
+      <th>r</th>
+      <td><p>is the Raster layer to compare to the climatology.</p></td>
     </tr>
     <tr>
-      <th>s</th>
-      <td><p>Raster* object containing the forecasts</p></td>
+      <th>from</th>
+      <td><p>string, starting date (e.g. "2018-12-30").</p></td>
     </tr>
     <tr>
-      <th>p</th>
-      <td><p>SpatialPolygon* identifying the area affected by fires.</p></td>
-    </tr>
-    <tr>
-      <th>threshold</th>
-      <td><p>danger threshold calculated using the function
-<code>DangerLevels()</code>, usually the high danger level.</p></td>
-    </tr>
-    <tr>
-      <th>start_date</th>
-      <td><p>date when observations start</p></td>
-    </tr>
-    <tr>
-      <th>end_date</th>
-      <td><p>date when observations end</p></td>
-    </tr>
-    <tr>
-      <th>obs_file_path</th>
-      <td><p>file path to observations (3D raster)</p></td>
-    </tr>
-    <tr>
-      <th>forecast_type</th>
-      <td><p>type of forecast: hr (high resolution/deterministic),
-ens (control and perturbed forecast/probabilistic)</p></td>
-    </tr>
-    <tr>
-      <th>origin</th>
-      <td><p>This is the rating system of interest:
-fwi (default, currently called cfwis), mark5, nfdrs.</p></td>
-    </tr>
-    <tr>
-      <th>index</th>
-      <td><p>This is the index to analyse
-(default is fwi, belonging to fwi origin).</p></td>
+      <th>to</th>
+      <td><p>string, ending date (e.g. "2018-12-31").</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>If the <code>from</code> and <code>to</code> strings are in the format
+"YYYY-MM-DD", they are automatically converted into a date.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><span class='co'># NOT RUN {</span>
-  <span class='fu'>plot_obs_vs_forecast</span>(<span class='kw'>input_dir</span> <span class='kw'>=</span> <span class='st'>"/scratch/mo/moc0/fire/GEFF1.2/forecast"</span>,
-                    <span class='kw'>p</span> <span class='kw'>=</span> <span class='no'>fireBBOX</span>,
-                    <span class='kw'>threshold</span> <span class='kw'>=</span> <span class='fl'>14</span>,
-                    <span class='kw'>start_date</span> <span class='kw'>=</span> <span class='st'>"2017-06-01"</span>, <span class='kw'>end_date</span> <span class='kw'>=</span> <span class='st'>"2017-06-30"</span>,
-                    <span class='kw'>obs_file_path</span> <span class='kw'>=</span> <span class='st'>"CAMS_2017-06-01_2017-06-19_frpfire.nc"</span>)
+  <span class='no'>r</span> <span class='kw'>&lt;-</span> <span class='fu'>brick</span>(<span class='st'>"fwi.nc"</span>)
+  <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>subset_datacube</span>(<span class='no'>r</span>,
+                       <span class='kw'>from</span> <span class='kw'>=</span> <span class='st'>"2017-12-30"</span>,
+                       <span class='kw'>to</span> <span class='kw'>=</span> <span class='st'>"2017-12-31"</span>)
 <span class='co'># }</span><div class='input'>
 </div></pre>
   </div>
@@ -191,7 +163,9 @@ fwi (default, currently called cfwis), mark5, nfdrs.</p></td>
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
+      
+      <li><a href="#details">Details</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
