@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">caliver</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4</span>
       </span>
     </div>
 
@@ -79,7 +79,7 @@
       
       </header><div class="row">
   <div class="contents col-md-9">
-    <div id="caliver-r-package" class="section level1">
+<div id="caliver-r-package" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#caliver-r-package" class="anchor"></a>caliver R package</h1></div>
 <blockquote>
@@ -144,21 +144,21 @@
 <a href="#r-dependencies" class="anchor"></a>R dependencies</h2>
 <p>The caliver package also depends on additional R packages from both CRAN and Bioconductor, here is how to install them from an R console:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># Install packages from CRAN</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">packs &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"rgdal"</span>, <span class="st">"ncdf4"</span>, <span class="st">"ggplot2"</span>, <span class="st">"raster"</span>, <span class="st">"sp"</span>, <span class="st">"rworldmap"</span>, <span class="st">"httr"</span>, <span class="st">"stringr"</span>, <span class="st">"lubridate"</span>, <span class="st">"RCurl"</span>, <span class="st">"plotrix"</span>, <span class="st">"reshape2"</span>, <span class="st">"R.utils"</span>, <span class="st">"devtools"</span>, <span class="st">"proto"</span>, <span class="st">"roxygen2"</span>, <span class="st">"png"</span>, <span class="st">"rmarkdown"</span>, <span class="st">"pkgdown"</span>, <span class="st">"BiocManager"</span>)</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">install.packages</span>(packs)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">packs &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"rgdal"</span>, <span class="st">"ncdf4"</span>, <span class="st">"ggplot2"</span>, <span class="st">"raster"</span>, <span class="st">"sp"</span>, <span class="st">"rworldmap"</span>, <span class="st">"httr"</span>, <span class="st">"stringr"</span>, <span class="st">"lubridate"</span>, <span class="st">"RCurl"</span>, <span class="st">"plotrix"</span>, <span class="st">"reshape2"</span>, <span class="st">"R.utils"</span>, <span class="st">"devtools"</span>, <span class="st">"proto"</span>, <span class="st">"roxygen2"</span>, <span class="st">"png"</span>, <span class="st">"rmarkdown"</span>, <span class="st">"pkgdown"</span>, <span class="st">"BiocManager"</span>)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(packs)</a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"></a>
 <a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co"># Install package from BIOCONDUCTOR </span></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">BiocManager<span class="op">::</span><span class="kw">install</span>(<span class="st">"rhdf5"</span>)</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">BiocManager<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/BiocManager/topics/install">install</a></span>(<span class="st">"rhdf5"</span>)</a>
 <a class="sourceLine" id="cb1-7" data-line-number="7"></a>
 <a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co"># Install packages from GitHub (only needed if you intend to run unit tests)</span></a>
-<a class="sourceLine" id="cb1-9" data-line-number="9">devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"jimhester/covr"</span>)</a>
-<a class="sourceLine" id="cb1-10" data-line-number="10">devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"jimhester/lintr"</span>)</a>
-<a class="sourceLine" id="cb1-11" data-line-number="11">devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"MangoTheCat/visualTest"</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb1-9" data-line-number="9">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"jimhester/covr"</span>)</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"jimhester/lintr"</span>)</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"MangoTheCat/visualTest"</span>)</a></code></pre></div>
 <p>Get caliver’s development version from github using <a href="https://github.com/hadley/devtools">devtools</a>:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">"devtools"</span>)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"ecmwf/caliver"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"devtools"</span>)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"ecmwf/caliver"</span>)</a></code></pre></div>
 <p>Load the caliver package:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">library</span>(<span class="st">"caliver"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(<span class="st">"caliver"</span>)</a></code></pre></div>
 </div>
 <div id="meta" class="section level2">
 <h2 class="hasAnchor">
@@ -169,7 +169,7 @@
 <li>Please <a href="https://github.com/ecmwf/caliver/issues">report any issues or bugs</a>.</li>
 <li>License: <a href="LICENSE">APACHE-2</a>
 </li>
-<li>Get citation information for <code>caliver</code> in R doing <code>citation(package = "caliver")</code>
+<li>Get citation information for <code>caliver</code> in R doing <code><a href="https://www.rdocumentation.org/packages/utils/topics/citation">citation(package = "caliver")</a></code>
 </li>
 </ul>
 </div>
@@ -217,7 +217,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>

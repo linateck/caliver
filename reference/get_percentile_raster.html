@@ -64,7 +64,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">caliver</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4</span>
       </span>
     </div>
 
@@ -124,7 +124,7 @@
     </div>
 
     <pre class="usage"><span class='fu'>get_percentile_raster</span>(<span class='no'>probs</span>, <span class='kw'>r</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>input_file</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>output_dir</span> <span class='kw'>=</span> <span class='fu'>tempdir</span>())</pre>
+  <span class='kw'>output_dir</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/tempfile'>tempdir</a></span>())</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -156,9 +156,9 @@ default this is a temporary directory.</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><span class='co'># NOT RUN {</span>
-  <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>get_percentile_raster</span>(<span class='kw'>probs</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>50</span>, <span class='fl'>75</span>, <span class='fl'>90</span>, <span class='fl'>99</span>),
+  <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>get_percentile_raster</span>(<span class='kw'>probs</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>50</span>, <span class='fl'>75</span>, <span class='fl'>90</span>, <span class='fl'>99</span>),
                              <span class='kw'>input_file</span> <span class='kw'>=</span> <span class='st'>"./outfile.nc"</span>,
-                             <span class='kw'>output_dir</span> <span class='kw'>=</span> <span class='fu'>getwd</span>())
+                             <span class='kw'>output_dir</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/getwd'>getwd</a></span>())
 <span class='co'># }</span><div class='input'>
 </div></pre>
   </div>
@@ -181,7 +181,7 @@ default this is a temporary directory.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>
