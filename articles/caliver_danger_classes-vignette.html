@@ -6,7 +6,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Verification of fire danger classes • caliver</title>
-<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.1/clipboard.min.js" integrity="sha256-hIvIxeqhGZF+VVeM55k0mJvWpQ6gTkWk3Emc+NmowYA=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
@@ -81,7 +80,7 @@
       <h1>Verification of fire danger classes</h1>
                         <h4 class="author">Claudia Vitolo</h4>
             
-            <h4 class="date">2018-11-13</h4>
+            <h4 class="date">2018-11-14</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ecmwf/caliver/blob/master/vignettes/caliver_danger_classes-vignette.Rmd"><code><a href="https://www.rdocumentation.org/packages/base/topics/Arithmetic">vignettes/caliver_danger_classes-vignette.Rmd</a></code></a></small>
       <div class="hidden name"><code><a href="https://www.rdocumentation.org/packages/base/topics/Arithmetic">caliver_danger_classes-vignette.Rmd</a></code></div>
@@ -438,7 +437,7 @@
 <a class="sourceLine" id="cb7-31" data-line-number="31"><span class="co"># raster::plot(fireBBOX_CL, lwd = 2, border = "red", add = TRUE)</span></a></code></pre></div>
 <p><img src="figures/Chile_boxy_map.png" width="700"></p>
 <p>In the figure above Chile is shaded in gray while the areas in green show the most important fire activities(fireBBOX), which we compare below with the high danger level calculated previously for Chile.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">ChileFRP &lt;-<span class="st"> </span><span class="kw"><a href="../reference/plot_obs_vs_forecast.html">plot_obs_vs_forecast</a></span>(<span class="dt">input_dir =</span> <span class="st">"../geff/forecast/fwi2017/ffwi_rotated"</span>, </a>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">ChileFRP &lt;-<span class="st"> </span><span class="kw">plot_obs_vs_forecast</span>(<span class="dt">input_dir =</span> <span class="st">"../geff/forecast/fwi2017/ffwi_rotated"</span>, </a>
 <a class="sourceLine" id="cb8-2" data-line-number="2">                                 <span class="dt">p =</span> fireBBOX_CL, </a>
 <a class="sourceLine" id="cb8-3" data-line-number="3">                                 <span class="dt">threshold =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/numeric">as.numeric</a></span>(df<span class="op">$</span><span class="st">`</span><span class="dt">Very high</span><span class="st">`</span>[df<span class="op">$</span>Location <span class="op">==</span><span class="st"> "Chile"</span>]),</a>
 <a class="sourceLine" id="cb8-4" data-line-number="4">                                 <span class="dt">start_date =</span> start_date,</a>
@@ -489,7 +488,7 @@
 <a class="sourceLine" id="cb9-31" data-line-number="31"><span class="co"># raster::plot(fireBBOX_CL, lwd = 2, border = "red", add = TRUE)</span></a></code></pre></div>
 <p><img src="figures/Portugal_boxy_map.png" width="700"></p>
 <p>In the figure above Portugal is shaded in gray while the areas in green show the most important fire activities(fireBBOX), which we compare below with the high danger level calculated previously for Portugal.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">PortugalFRP &lt;-<span class="st"> </span><span class="kw"><a href="../reference/plot_obs_vs_forecast.html">plot_obs_vs_forecast</a></span>(<span class="dt">input_dir =</span> <span class="st">"../geff/forecast/fwi2017/ffwi_rotated"</span>, </a>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">PortugalFRP &lt;-<span class="st"> </span><span class="kw">plot_obs_vs_forecast</span>(<span class="dt">input_dir =</span> <span class="st">"../geff/forecast/fwi2017/ffwi_rotated"</span>, </a>
 <a class="sourceLine" id="cb10-2" data-line-number="2">                                 <span class="dt">p =</span> fireBBOX_CL, </a>
 <a class="sourceLine" id="cb10-3" data-line-number="3">                                 <span class="dt">threshold =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/numeric">as.numeric</a></span>(df<span class="op">$</span><span class="st">`</span><span class="dt">Very high</span><span class="st">`</span>[df<span class="op">$</span>Location <span class="op">==</span><span class="st"> "Portugal"</span>]),</a>
 <a class="sourceLine" id="cb10-4" data-line-number="4">                                 <span class="dt">start_date =</span> start_date,</a>
@@ -535,7 +534,7 @@
 <a class="sourceLine" id="cb11-32" data-line-number="32"><span class="co"># raster::plot(fireBBOX_CL, lwd = 2, border = "red", add = TRUE)</span></a></code></pre></div>
 <p><img src="figures/California_boxy_map.png" width="700"></p>
 <p>In the figure above California is shaded in gray while the areas in green show the most important fire activities(fireBBOX), which we compare below with the high danger level calculated previously for California.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">CaliforniaFRP &lt;-<span class="st"> </span><span class="kw"><a href="../reference/plot_obs_vs_forecast.html">plot_obs_vs_forecast</a></span>(<span class="dt">input_dir =</span> <span class="st">"../geff/forecast/fwi2017/ffwi_rotated"</span>, </a>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">CaliforniaFRP &lt;-<span class="st"> </span><span class="kw">plot_obs_vs_forecast</span>(<span class="dt">input_dir =</span> <span class="st">"../geff/forecast/fwi2017/ffwi_rotated"</span>, </a>
 <a class="sourceLine" id="cb12-2" data-line-number="2">                                 <span class="dt">p =</span> fireBBOX_CL, </a>
 <a class="sourceLine" id="cb12-3" data-line-number="3">                                 <span class="dt">threshold =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/numeric">as.numeric</a></span>(df<span class="op">$</span><span class="st">`</span><span class="dt">Very high</span><span class="st">`</span>[df<span class="op">$</span>Location <span class="op">==</span><span class="st"> "California"</span>]),</a>
 <a class="sourceLine" id="cb12-4" data-line-number="4">                                 <span class="dt">start_date =</span> start_date,</a>
