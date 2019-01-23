@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>plot_anomaly — plot_anomaly • caliver</title>
+<title>forecast_summary_clima — forecast_summary_clima • caliver</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="plot_anomaly — plot_anomaly" />
+<meta property="og:title" content="forecast_summary_clima — forecast_summary_clima" />
 
-<meta property="og:description" content="Plot anomaly map as shown in GWIS (https://bit.ly/2BbBfsm)" />
+<meta property="og:description" content="Plot observations versus forecast" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -111,44 +111,77 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>plot_anomaly</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ecmwf/caliver/blob/master/R/anomaly.R'><code>R/anomaly.R</code></a></small>
-    <div class="hidden name"><code>plot_anomaly.Rd</code></div>
+    <h1>forecast_summary_clima</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ecmwf/caliver/blob/master/R/forecast_summary_clima.R'><code>R/forecast_summary_clima.R</code></a></small>
+    <div class="hidden name"><code>forecast_summary_clima.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Plot anomaly map as shown in GWIS (<a href='https://bit.ly/2BbBfsm'>https://bit.ly/2BbBfsm</a>)</p>
+    <p>Plot observations versus forecast</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>plot_anomaly</span>(<span class='no'>anomaly_map</span>, <span class='kw'>custom_palette</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>forecast_summary_clima</span>(<span class='no'>input_dir</span>, <span class='kw'>r</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>p</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>threshold</span> <span class='kw'>=</span> <span class='fl'>0.95</span>, <span class='no'>start_date</span>, <span class='no'>end_date</span>, <span class='kw'>obs</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>origin</span> <span class='kw'>=</span> <span class='st'>"FWI"</span>,
+  <span class='kw'>index</span> <span class='kw'>=</span> <span class='st'>"fwi"</span>, <span class='no'>clima</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>anomaly_map</th>
-      <td><p>is the Raster layer, result of <code><a href='anomaly.html'>anomaly()</a></code>.</p></td>
+      <th>input_dir</th>
+      <td><p>folder containing forecast files</p></td>
     </tr>
     <tr>
-      <th>custom_palette</th>
-      <td><p>palette to use (default is <code><a href='https://www.rdocumentation.org/packages/viridis/topics/reexports'>viridis::plasma</a></code>)</p></td>
+      <th>r</th>
+      <td><p>Raster* object containing the forecasts</p></td>
     </tr>
     <tr>
-      <th>...</th>
-      <td><p>other plotting arguments, see <code><a href='https://www.rdocumentation.org/packages/raster/topics/plot'>?raster::plot</a></code> function.</p></td>
+      <th>p</th>
+      <td><p>SpatialPolygon* identifying the area affected by fires</p></td>
+    </tr>
+    <tr>
+      <th>threshold</th>
+      <td><p>percentile to be used as danger threshold (default is 0.95).</p></td>
+    </tr>
+    <tr>
+      <th>start_date</th>
+      <td><p>date when observations start</p></td>
+    </tr>
+    <tr>
+      <th>end_date</th>
+      <td><p>date when observations end</p></td>
+    </tr>
+    <tr>
+      <th>obs</th>
+      <td><p>observations, it can either be a file path or a RasterStack/Brick</p></td>
+    </tr>
+    <tr>
+      <th>origin</th>
+      <td><p>This is the rating system of interest:
+fwi (default, currently called cfwis), mark5, nfdrs.</p></td>
+    </tr>
+    <tr>
+      <th>index</th>
+      <td><p>This is the index to analyse
+(default is fwi, belonging to fwi origin).</p></td>
+    </tr>
+    <tr>
+      <th>clima</th>
+      <td><p>RasterBrick containing the climatological information.</p></td>
     </tr>
     </table>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><span class='co'># NOT RUN {</span>
-  <span class='no'>r</span> <span class='kw'>&lt;-</span> <span class='fu'>brick</span>(<span class='st'>"cfwis_ffwi_20170101_1200_00.nc"</span>)<span class='kw'>[[</span><span class='fl'>1</span>]]
-  <span class='no'>clima</span> <span class='kw'>&lt;-</span> <span class='fu'>brick</span>(<span class='st'>"fwi.nc"</span>)
-  <span class='no'>anomaly_map</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='anomaly.html'>anomaly</a></span>(<span class='no'>r</span>, <span class='no'>clima</span>)
-  <span class='fu'>plot_anomaly</span>(<span class='no'>anomaly_map</span>,
-               <span class='kw'>custom_palette</span> <span class='kw'>=</span> <span class='kw pkg'>colorRamps</span><span class='kw ns'>::</span><span class='fu'>matlab.like</span>(<span class='kw'>n</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/length'>length</a></span>(<span class='no'>breaks</span>)))
+  <span class='fu'><a href='forecast_summary.html'>forecast_summary</a></span>(<span class='kw'>input_dir</span> <span class='kw'>=</span> <span class='st'>"forecast"</span>,
+                   <span class='kw'>p</span> <span class='kw'>=</span> <span class='no'>fireBBOX</span>,
+                   <span class='kw'>threshold</span> <span class='kw'>=</span> <span class='fl'>0.95</span>,
+                   <span class='kw'>start_date</span> <span class='kw'>=</span> <span class='st'>"2017-06-01"</span>,
+                   <span class='kw'>end_date</span> <span class='kw'>=</span> <span class='st'>"2017-06-30"</span>,
+                   <span class='kw'>obs</span> <span class='kw'>=</span> <span class='st'>"CAMS_2017-06-01_2017-06-19_frpfire.nc"</span>)
 <span class='co'># }</span><div class='input'>
 </div></pre>
   </div>

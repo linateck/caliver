@@ -122,7 +122,7 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>plot_ranking</span>(<span class='no'>ranking_map</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>plot_ranking</span>(<span class='no'>ranking_map</span>, <span class='kw'>custom_palette</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -130,6 +130,10 @@
     <tr>
       <th>ranking_map</th>
       <td><p>is the Raster layer, result of <code><a href='ranking.html'>ranking()</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>custom_palette</th>
+      <td><p>palette to use (default is <code><a href='https://www.rdocumentation.org/packages/viridis/topics/reexports'>viridis::viridis</a></code>)</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -143,7 +147,10 @@
   <span class='no'>r</span> <span class='kw'>&lt;-</span> <span class='fu'>brick</span>(<span class='st'>"cfwis_ffwi_20170101_1200_00.nc"</span>)<span class='kw'>[[</span><span class='fl'>1</span>]]
   <span class='no'>clima</span> <span class='kw'>&lt;-</span> <span class='fu'>brick</span>(<span class='st'>"fwi.nc"</span>)
   <span class='no'>ranking_map</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ranking.html'>ranking</a></span>(<span class='no'>r</span>, <span class='no'>clima</span>)
-  <span class='fu'>plot_ranking</span>(<span class='no'>ranking_map</span>)
+  <span class='co'># As shown in GWIS</span>
+  <span class='fu'>plot_ranking</span>(<span class='no'>ranking_map</span>,
+               <span class='kw'>custom_palette</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"green"</span>, <span class='st'>"yellow"</span>, <span class='st'>"salmon"</span>, <span class='st'>"orange"</span>,
+                                  <span class='st'>"red"</span>, <span class='st'>"black"</span>))
 <span class='co'># }</span><div class='input'>
 </div></pre>
   </div>

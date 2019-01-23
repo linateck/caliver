@@ -122,7 +122,8 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>mask_crop_subset</span>(<span class='no'>r</span>, <span class='no'>p</span>, <span class='kw'>mask</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>crop</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>idx</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>mask_crop_subset</span>(<span class='no'>r</span>, <span class='no'>p</span>, <span class='kw'>mask</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>crop</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>idx</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>accurate</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -146,6 +147,11 @@
     <tr>
       <th>idx</th>
       <td><p>vector of strings indicating the layer indices to subset</p></td>
+    </tr>
+    <tr>
+      <th>accurate</th>
+      <td><p>logical, TRUE to apply more accurate cropping/masking,
+FALSE otherwise</p></td>
     </tr>
     </table>
     
