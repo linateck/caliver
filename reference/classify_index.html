@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>get_gfed4 — get_gfed4 • caliver</title>
+<title>classify_index — classify_index • caliver</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,10 +30,13 @@
 
 
 
-<meta property="og:title" content="get_gfed4 — get_gfed4" />
+<meta property="og:title" content="classify_index — classify_index" />
 
-<meta property="og:description" content="Get data from the fourth-generation Global Fire Emissions
-Database (GFED4)" />
+<meta property="og:description" content="This function classifies a fire danger index based on user
+defined danger thresholds. If no thresholds are specified, the function
+assumes the index is FWI and thresholds are those defined by JRC for Europe:
+very Low = 0-5.2, low = 5.2-11.2, moderate = 11.2-21.3, high = 21.3-38.0,
+very high = 38-50.0, extreme = &amp;gt; 50." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -112,110 +115,48 @@ Database (GFED4)" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>get_gfed4</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ecmwf/caliver/blob/master/R/get_gfed4.R'><code>R/get_gfed4.R</code></a></small>
-    <div class="hidden name"><code>get_gfed4.Rd</code></div>
+    <h1>classify_index</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ecmwf/caliver/blob/master/R/classify_index.R'><code>R/classify_index.R</code></a></small>
+    <div class="hidden name"><code>classify_index.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Get data from the fourth-generation Global Fire Emissions
-Database (GFED4)</p>
+    <p>This function classifies a fire danger index based on user
+defined danger thresholds. If no thresholds are specified, the function
+assumes the index is FWI and thresholds are those defined by JRC for Europe:
+very Low = 0-5.2, low = 5.2-11.2, moderate = 11.2-21.3, high = 21.3-38.0,
+very high = 38-50.0, extreme = &gt; 50.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>get_gfed4</span>(<span class='kw'>start_date</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>end_date</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>temporal_resolution</span> <span class='kw'>=</span> <span class='st'>"daily"</span>, <span class='kw'>varname</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>region</span> <span class='kw'>=</span> <span class='st'>"GLOB"</span>,
-  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>classify_index</span>(<span class='no'>r</span>, <span class='kw'>thresholds</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>start_date</th>
-      <td><p>first date to download (string)</p></td>
+      <th>r</th>
+      <td><p>is the Raster* object to classify.</p></td>
     </tr>
     <tr>
-      <th>end_date</th>
-      <td><p>last date to download (string)</p></td>
-    </tr>
-    <tr>
-      <th>temporal_resolution</th>
-      <td><p>temporal resolution, it can be "daily" (default)
-or "monthly"</p></td>
-    </tr>
-    <tr>
-      <th>varname</th>
-      <td><p>name of the variable to extract.
-This can be one of the following:</p><ul>
-<li><p>"BasisRegions"</p></li>
-<li><p>"BurnedArea"</p></li>
-<li><p>"BurnedAreaUncertainty"</p></li>
-<li><p>"MeanBurnDateUncertainty"</p></li>
-<li><p>"source"</p></li>
-<li><p>"TreeCoverDist"</p></li>
-<li><p>"LandCoverDist"</p></li>
-<li><p>"PeatFraction"</p></li>
-</ul></td>
-    </tr>
-    <tr>
-      <th>region</th>
-      <td><p>string of characters describing the region.
-It can only be one of the 15 values listed below:</p><ul>
-<li><p>"Global"or GLOB</p></li>
-<li><p>"Boreal North America"or BONA</p></li>
-<li><p>"Temperate North America"or TENA</p></li>
-<li><p>"Central America"or CEAM</p></li>
-<li><p>"Northern Hemisphere South America"or NHSA</p></li>
-<li><p>"Southern Hemisphere South America"or SHSA</p></li>
-<li><p>"Europe"or EURO</p></li>
-<li><p>"Middle East"or MIDE</p></li>
-<li><p>"Northern Hemisphere Africa"or NHAF</p></li>
-<li><p>"Southern Hemisphere Africa"or SHAF</p></li>
-<li><p>"Boreal Asia"or BOAS</p></li>
-<li><p>"Central Asia"or CEAS</p></li>
-<li><p>"Southeast Asia"or SEAS</p></li>
-<li><p>"Equatorial Asia"or EQAS</p></li>
-<li><p>"Australia and New Zealand"or AUST</p></li>
-</ul></td>
-    </tr>
-    <tr>
-      <th>verbose</th>
-      <td><p>If TRUE, messages are printed on the screen</p></td>
+      <th>thresholds</th>
+      <td><p>numeric vector containing 5 thresholds.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A RasterBrick (if downloading observations) or spatial polygons
-(if downloading basis regions)</p>
-    
-    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
-
-    <p>The conversion from hdf5 to netcdf gets stuck in RStudio
-(see <a href='https://goo.gl/Rcvp9x'>https://goo.gl/Rcvp9x</a>), please use the console.</p>
+    <p>The function returns a Raster* object of the same dimensions of
+<code>r</code> but the values are categorical from 1 to 6 (corresponding to
+very low, low, moderate, high, very high and extreme danger, respectively).
+Some cells may contain NAs, this happens typically over the sea.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><span class='co'># NOT RUN {</span>
-  <span class='co'># Basis regions</span>
-  <span class='no'>BasisRegions</span> <span class='kw'>&lt;-</span> <span class='fu'>get_gfed4</span>(<span class='kw'>varname</span> <span class='kw'>=</span> <span class='st'>"BasisRegions"</span>)
-
-  <span class='co'># Only BONA region</span>
-  <span class='no'>BONA</span> <span class='kw'>&lt;-</span> <span class='fu'>get_gfed4</span>(<span class='kw'>varname</span> <span class='kw'>=</span> <span class='st'>"BasisRegions"</span>, <span class='kw'>region</span> <span class='kw'>=</span> <span class='st'>"BONA"</span>)
-
-  <span class='co'># Monthly burned areas</span>
-  <span class='no'>BurnedAreas</span> <span class='kw'>&lt;-</span> <span class='fu'>get_gfed4</span>(<span class='kw'>start_date</span> <span class='kw'>=</span> <span class='st'>"2003-01-01"</span>,
-                           <span class='kw'>end_date</span> <span class='kw'>=</span> <span class='st'>"2003-01-31"</span>,
-                           <span class='kw'>temporal_resolution</span> <span class='kw'>=</span> <span class='st'>"monthly"</span>,
-                           <span class='kw'>varname</span> <span class='kw'>=</span> <span class='st'>"BurnedArea"</span>)
-
-  <span class='co'># Daily burned areas</span>
-  <span class='no'>DailyBurnedAreas</span> <span class='kw'>&lt;-</span> <span class='fu'>get_gfed4</span>(<span class='kw'>start_date</span> <span class='kw'>=</span> <span class='st'>"2003-01-01"</span>,
-                                <span class='kw'>end_date</span> <span class='kw'>=</span> <span class='st'>"2003-01-02"</span>,
-                                <span class='kw'>temporal_resolution</span> <span class='kw'>=</span> <span class='st'>"daily"</span>,
-                                <span class='kw'>varname</span> <span class='kw'>=</span> <span class='st'>"BurnedArea"</span>)
-
+  <span class='no'>r</span> <span class='kw'>&lt;-</span> <span class='fu'>brick</span>(<span class='st'>"ECMWF_FWI_20180723_1200_hr_fwi.nc"</span>)
+  <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>classify_index</span>(<span class='no'>r</span>, <span class='kw'>thresholds</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>5.2</span>, <span class='fl'>11.2</span>, <span class='fl'>21.3</span>, <span class='fl'>38</span>, <span class='fl'>50</span>))
 <span class='co'># }</span><div class='input'>
 </div></pre>
   </div>
@@ -225,8 +166,6 @@ It can only be one of the 15 values listed below:</p><ul>
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
-
-      <li><a href="#note">Note</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>
