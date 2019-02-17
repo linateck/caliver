@@ -87,45 +87,13 @@
 <p><a href="https://doi.org/10.5281/zenodo.376613"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.376613.svg" alt="DOI"></a> <a href="https://travis-ci.org/ecmwf/caliver"><img src="https://travis-ci.org/ecmwf/caliver.svg?branch=master" alt="Travis-CI Build Status"></a> <a href="https://codecov.io/github/ecmwf/caliver?branch=master"><img src="https://codecov.io/gh/ecmwf/caliver/master.svg" alt="Coverage Status"></a></p>
 <p><strong>caliver</strong> is a package developed for the R programming language. The name stands for <strong>cal</strong>Ibration and <strong>ver</strong>ification of gridded models. Although caliver was initially designed for wildfire danger models such as GEFF (developed by ECMWF) and RISICO (developed by CIMA Research Foundation), the algorithms can be applied to any gridded model output. Caliver is available with an APACHE-2 license.</p>
 <p>For more details, please see the following paper:</p>
-<blockquote>
-<p>Vitolo C., Di Giuseppe F. and D’Andrea M. (2018) <strong>“Caliver: An R Package for Calibration and Verification of Forest Fire Gridded Model Outputs”</strong>. PLOS ONE 13 (1). Public Library of Science: 1–18. <a href="doi:10.1371/journal.pone.0189419" class="uri">doi:10.1371/journal.pone.0189419</a></p>
-</blockquote>
+<p><em>Vitolo C., Di Giuseppe F. and D’Andrea M. (2018) <strong>“Caliver: An R Package for Calibration and Verification of Forest Fire Gridded Model Outputs”</strong>. PLOS ONE 13 (1). Public Library of Science: 1–18. <a href="doi:10.1371/journal.pone.0189419" class="uri">doi:10.1371/journal.pone.0189419</a></em></p>
 <div id="external-dependencies" class="section level2">
 <h2 class="hasAnchor">
 <a href="#external-dependencies" class="anchor"></a>External dependencies</h2>
 <p>The installation of the caliver package depends on the Climate Data Operators (<a href="https://code.zmaw.de/projects/cdo/wiki">cdo</a>), a large tool set for working on climate and NWP model data); the NCAR Command Language (<a href="https://www.ncl.ucar.edu/">ncl</a>), an interpred language with built-in functionalities to convert hdf5 files to netcdf format; the Geospatial Data Abstraction Library (<a href="http://www.gdal.org/">GDAL</a>, a translator library for raster and vector geospatial data formats) and the NetCDF4 library (<a href="http://www.unidata.ucar.edu/software/netcdf/">netcdf4</a>).</p>
 <p>Assuming the user has already installed R, below are the instructions to install caliver’s external dependencies on various operating systems.</p>
-<div id="windows" class="section level3">
-<h3 class="hasAnchor">
-<a href="#windows" class="anchor"></a>Windows</h3>
-<p>On Windows, follow the steps below:</p>
-<ul>
-<li>install <a href="https://cran.r-project.org/bin/windows/Rtools/">Rtools</a>.</li>
-<li>launch an R console and run the following commands:
-<ul>
-<li>ToDo</li>
-</ul>
-</li>
-</ul>
-</div>
-<div id="mac" class="section level3">
-<h3 class="hasAnchor">
-<a href="#mac" class="anchor"></a>MAC</h3>
-<p>Use homebrew and run the following in a terminal:</p>
-<ul>
-<li><code>brew install netcdf</code></li>
-<li><code>brew install hdf5</code></li>
-<li><code>brew install proj</code></li>
-<li><code>brew install gdal</code></li>
-<li><code>brew install ncl</code></li>
-<li><code>brew install udunits</code></li>
-<li><code>brew install cdo</code></li>
-</ul>
-</div>
-<div id="ubuntu-linux" class="section level3">
-<h3 class="hasAnchor">
-<a href="#ubuntu-linux" class="anchor"></a>Ubuntu-Linux</h3>
-<p>Run the following in a terminal:</p>
+<p>On <strong>Ubuntu-Linux</strong>, run the following in a terminal:</p>
 <ul>
 <li><code>sudo apt-get install libssl-dev</code></li>
 <li><code>sudo apt-get install libproj-dev</code></li>
@@ -136,12 +104,33 @@
 <li><code>sudo apt-get install cdo</code></li>
 <li><code>sudo apt-get install ncl-ncarg</code></li>
 </ul>
+<p>On <strong>MAC</strong>, use homebrew and run the following in a terminal:</p>
+<ul>
+<li><code>brew install netcdf</code></li>
+<li><code>brew install hdf5</code></li>
+<li><code>brew install proj</code></li>
+<li><code>brew install gdal</code></li>
+<li><code>brew install ncl</code></li>
+<li><code>brew install cdo</code></li>
+</ul>
+<p>On <strong>Windows</strong>, follow the steps below:</p>
+<ul>
+<li>install <a href="https://cran.r-project.org/bin/windows/Rtools/">Rtools</a>.</li>
+<li>launch an R console and run the following commands:
+<ul>
+<li>ToDo</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="install-and-load-caliver" class="section level2">
+<h2 class="hasAnchor">
+<a href="#install-and-load-caliver" class="anchor"></a>Install and load caliver</h2>
 <p>Get caliver’s development version from github using <a href="https://github.com/hadley/devtools">devtools</a>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"devtools"</span>)</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"ecmwf/caliver"</span>)</a></code></pre></div>
 <p>Load the caliver package:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(<span class="st">"caliver"</span>)</a></code></pre></div>
-</div>
 </div>
 <div id="meta" class="section level2">
 <h2 class="hasAnchor">
