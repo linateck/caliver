@@ -91,18 +91,17 @@
 <div id="external-dependencies" class="section level2">
 <h2 class="hasAnchor">
 <a href="#external-dependencies" class="anchor"></a>External dependencies</h2>
-<p>The installation of the caliver package depends on the Climate Data Operators (<a href="https://code.zmaw.de/projects/cdo/wiki">cdo</a>), a large tool set for working on climate and NWP model data); the NCAR Command Language (<a href="https://www.ncl.ucar.edu/">ncl</a>), an interpred language with built-in functionalities to convert hdf5 files to netcdf format; the Geospatial Data Abstraction Library (<a href="http://www.gdal.org/">GDAL</a>, a translator library for raster and vector geospatial data formats) and the NetCDF4 library (<a href="http://www.unidata.ucar.edu/software/netcdf/">netcdf4</a>).</p>
+<p>The installation of the caliver package depends on the Geospatial Data Abstraction Library (<a href="http://www.gdal.org/">GDAL</a>, a translator library for raster and vector geospatial data formats), the NetCDF4 library (<a href="http://www.unidata.ucar.edu/software/netcdf/">netcdf4</a>) and the HDF5 library(<a href="https://www.hdfgroup.org/solutions/hdf5/">hdf5</a>).</p>
 <p>Assuming the user has already installed R, below are the instructions to install caliver’s external dependencies on various operating systems.</p>
 <p>On <strong>Ubuntu-Linux</strong>, run the following in a terminal:</p>
 <ul>
 <li><code>sudo apt-get install libssl-dev</code></li>
 <li><code>sudo apt-get install libproj-dev</code></li>
 <li><code>sudo apt-get install libgdal-dev</code></li>
+<li><code>sudo apt-get install gdal-bin</code></li>
 <li><code>sudo apt-get install libhdf5-dev</code></li>
 <li><code>sudo apt-get install libnetcdf-dev</code></li>
 <li><code>sudo apt-get install netcdf-bin</code></li>
-<li><code>sudo apt-get install cdo</code></li>
-<li><code>sudo apt-get install ncl-ncarg</code></li>
 </ul>
 <p>On <strong>MAC</strong>, use homebrew and run the following in a terminal:</p>
 <ul>
@@ -110,8 +109,6 @@
 <li><code>brew install hdf5</code></li>
 <li><code>brew install proj</code></li>
 <li><code>brew install gdal</code></li>
-<li><code>brew install ncl</code></li>
-<li><code>brew install cdo</code></li>
 </ul>
 <p>On <strong>Windows</strong>, follow the steps below:</p>
 <ul>
