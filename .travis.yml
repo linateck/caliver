@@ -20,7 +20,8 @@ before_install:
   # install GDAL from source to enable HDF4-5 support
   - wget http://download.osgeo.org/gdal/2.4.0/gdal-2.4.0.tar.gz
   - (mv gdal* /tmp; cd /tmp; tar xzf gdal-2.4.0.tar.gz)
-  - (cd /tmp/gdal-2.4.0; ./configure --with-hdf4 --with-hdf5; make; make install)
+  - cd /tmp/gdal-2.4.0
+  - (./configure --with-hdf4 --with-hdf5; make; make install; ldconfig)
 
 r_github_packages:
   - jimhester/lintr
