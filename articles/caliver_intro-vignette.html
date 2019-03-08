@@ -80,7 +80,7 @@
       <h1>An introduction to the caliver package</h1>
                         <h4 class="author">Claudia Vitolo</h4>
             
-            <h4 class="date">2019-02-27</h4>
+            <h4 class="date">2019-03-08</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ecmwf/caliver/blob/master/vignettes/caliver_intro-vignette.Rmd"><code>vignettes/caliver_intro-vignette.Rmd</code></a></small>
       <div class="hidden name"><code>caliver_intro-vignette.Rmd</code></div>
@@ -93,11 +93,11 @@
 <div id="package-installation-and-dependencies" class="section level2">
 <h2 class="hasAnchor">
 <a href="#package-installation-and-dependencies" class="anchor"></a>Package installation and dependencies</h2>
-<p>The caliver package is implemented in the R statistical language and depends on the following external libraries: the Climate Data Operators <span class="citation">(Schulzweida, Kornblueh, and Quast 2006)</span> a large tool set for working on climate and NWP model data), the NCAR Command Language <span class="citation">(Brown et al. 2012)</span> an interpreted language for scientific data analysis, the Geospatial Data Abstraction Library <span class="citation">(Warmerdam 2008)</span> a translator library for raster and vector geospatial data formats, and the NetCDF4 library <span class="citation">(Rew and Davis 1990)</span>.</p>
-<p>The caliver package also depends on additional R packages from both CRAN and Bioconductor. Users must have the above dependencies installed before attempting to install caliver. Installation instructions for different operating systems are available in the README file.</p>
+<p>The caliver package is implemented in the R statistical language and depends on the following external libraries: the Geospatial Data Abstraction Library <span class="citation">(Warmerdam 2008)</span> a translator library for raster and vector geospatial data formats (with HDF4 and HDF5 support), and the NetCDF4 library <span class="citation">(Rew and Davis 1990)</span>.</p>
+<p>Installation instructions for different operating systems are available in the README file. A Dockefile is provided with the source code and docker image (ecmwf/caliver) is available from docker hub.</p>
 <p>Once all the dependencies are available, the package can be installed via <a href="https://github.com/hadley/devtools">devtools</a>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># Install caliver from GitHub via devtools</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co"># install.packages("devtools", repos = "http://cran.rstudio.com")</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"devtools"</span>)</a>
 <a class="sourceLine" id="cb1-3" data-line-number="3">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"ecmwf/caliver"</span>)</a></code></pre></div>
 <p>Load the caliver package:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(<span class="st">"caliver"</span>)</a></code></pre></div>
@@ -106,17 +106,18 @@
 <h2 class="hasAnchor">
 <a href="#get-data-from-the-fourth-generation-global-fire-emissions-database-gfed4" class="anchor"></a>Get data from the fourth-generation Global Fire Emissions Database (GFED4)</h2>
 <p>Observed burned areas around the world are collected by the GFED4 in hdf format . This information is very important as it represents the ground truth for fire models, it is needed to make comparisons with reanalysis and forecast models and estimate their reliability.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># Get daily burned area maps from 2003 to 2015 (to be run in the console!)</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">BurnedAreas &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_gfed4.html">get_gfed4</a></span>(<span class="dt">start_date =</span> <span class="st">"2003-01-01"</span>,</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">                         <span class="dt">end_date =</span> <span class="st">"2015-12-31"</span>,</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">                         <span class="dt">temporal_resolution =</span> <span class="st">"daily"</span>,</a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">                         <span class="dt">varname =</span> <span class="st">"BurnedArea"</span>,</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">                         <span class="dt">region =</span> <span class="st">"GLOB"</span>)</a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co"># The above can be saved as follows:</span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9">raster<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/raster/topics/writeRaster">writeRaster</a></span>(BurnedAreas,</a>
-<a class="sourceLine" id="cb3-10" data-line-number="10">                    <span class="dt">filename=</span><span class="st">"BurnedArea.grd"</span>,</a>
-<a class="sourceLine" id="cb3-11" data-line-number="11">                    <span class="dt">bandorder=</span><span class="st">'BIL'</span>, <span class="dt">overwrite=</span><span class="ot">TRUE</span>, <span class="dt">progress =</span> <span class="st">'text'</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># Get daily burned area maps for 15-18 July 2003</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co"># (to be run in the console!)</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">BurnedAreas &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_gfed4.html">get_gfed4</a></span>(<span class="dt">start_date =</span> <span class="st">"2003-07-15"</span>,</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">                         <span class="dt">end_date =</span> <span class="st">"2003-07-18"</span>,</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">                         <span class="dt">temporal_resolution =</span> <span class="st">"daily"</span>,</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">                         <span class="dt">varname =</span> <span class="st">"BurnedArea"</span>,</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">                         <span class="dt">region =</span> <span class="st">"GLOB"</span>)</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co"># The above can be saved as follows:</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">raster<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/raster/topics/writeRaster">writeRaster</a></span>(BurnedAreas,</a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">                    <span class="dt">filename=</span><span class="st">"BurnedArea.grd"</span>,</a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">                    <span class="dt">bandorder=</span><span class="st">'BIL'</span>, <span class="dt">overwrite=</span><span class="ot">TRUE</span>, <span class="dt">progress =</span> <span class="st">'text'</span>)</a></code></pre></div>
 <p>The fourth-generation global fire emissions database also provides as ancillary data a map of 14 basis regions used to evaluate regional annual emission estimates. This map can be retrieved as SpatialPolygonsDataFrame (a spatial class defined in the sp package) setting `varname = “BasisRegions”’.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># Get all the BasisRegions</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2">BasisRegions &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_gfed4.html">get_gfed4</a></span>(<span class="dt">varname =</span> <span class="st">"BasisRegions"</span>)</a></code></pre></div>
@@ -433,14 +434,8 @@
 <h2 class="hasAnchor">
 <a href="#references" class="anchor"></a>References</h2>
 <div id="refs" class="references">
-<div id="ref-brown2012ncar">
-<p>Brown, D, R Brownrigg, M Haley, and W Huang. 2012. “The Ncar Command Language (Ncl)(version 6.0. 0).” <em>UCAR/NCAR Computational and Information Systems Laboratory, Boulder, CO.[Available Online at Http://Dx. Doi. Org/10.5065/D6WD3XH5.]</em>.</p>
-</div>
 <div id="ref-rew1990netcdf">
 <p>Rew, Russ, and Glenn Davis. 1990. “NetCDF: An Interface for Scientific Data Access.” <em>IEEE Computer Graphics and Applications</em> 10 (4). IEEE: 76–82.</p>
-</div>
-<div id="ref-schulzweida2006cdo">
-<p>Schulzweida, U, L Kornblueh, and R Quast. 2006. “CDO User’s Guide: Climate Data Operators Version 1.6. 1.”</p>
 </div>
 <div id="ref-vitolo:2018">
 <p>Vitolo, Claudia, Francesca Di Giuseppe, and Mirko D’Andrea. 2018. “Caliver: An R Package for Calibration and Verification of Forest Fire Gridded Model Outputs.” <em>PLOS ONE</em> 13 (1). Public Library of Science: 1–18. <a href="https://doi.org/10.1371/journal.pone.0189419" class="uri">https://doi.org/10.1371/journal.pone.0189419</a>.</p>
